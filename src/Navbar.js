@@ -14,7 +14,13 @@ const Navbar = () => {
 
     openSubmenu(page,{center,bottom});
   }
-  return <nav className="nav">
+  //to mouseOut handleSubmenu is used 
+  const handleSubmenu=(e)=>{
+    if(!e.target.classList.contains("link-btn")){
+      closeSubmenu();
+    }
+  }
+  return <nav className="nav" onMouseOver={handleSubmenu}>
     <div className="nav-center">
       <div className="nav-header">
 <img src={logo} alt="stripe"  className="nav-logo"/>
