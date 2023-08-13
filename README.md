@@ -1,5 +1,8 @@
 # Getting Started with Create React App
 
+Live link - https://stripe5.netlify.app/
+
+Please,support!
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
