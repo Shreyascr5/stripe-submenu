@@ -8,7 +8,8 @@ const AppContext=createContext();
 const AppProvider=({children})=>{
     const[isSidebarOpen,setIsSidebarOpen]=useState(false);
     const[isSubmenuOpen,setIsSubmenuOpen]=useState(false);
-const [location,setLocation]=useState({})
+const [location,setLocation]=useState({});
+const [page,setPage]=useState({page:"",links:[]})
 
   const openSidebar=()=>{
     setIsSidebarOpen(true);
@@ -17,6 +18,8 @@ const [location,setLocation]=useState({})
     setIsSidebarOpen(false);
   }
   const openSubmenu=(text,coordinates)=>{
+    const page=sublinks.find((link)=>link.page===text);
+    setPage(page);
     setIsSubmenuOpen(true);
     setLocation(coordinates)
   }  
@@ -30,7 +33,8 @@ const [location,setLocation]=useState({})
         closeSidebar,
         isSubmenuOpen,
         isSidebarOpen,
-        location
+        location,
+        page
     }}>{children}</AppContext.Provider>
     )
 }
