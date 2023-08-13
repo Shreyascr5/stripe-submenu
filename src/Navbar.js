@@ -5,6 +5,15 @@ import { useGLobalContext } from "./context";
 
 const Navbar = () => {
   const { openSidebar, openSubmenu, closeSubmenu } = useGLobalContext();
+  const displaySubmenu=(e)=>{
+    const page=e.target.textContent;
+    const tempBtn=e.target.getBoundingClientRect();
+    console.log(tempBtn);//from that we get middle, center
+    const center=(tempBtn.left+tempBtn.right)/2;
+    const bottom=tempBtn.bottom-3;
+
+    openSubmenu(page,{center,bottom});
+  }
   return <nav className="nav">
     <div className="nav-center">
       <div className="nav-header">
@@ -15,14 +24,14 @@ const Navbar = () => {
       </div>
       <ul className="nav-links">
         <li>
-          <button className="link-btn">
+          <button onMouseOver={displaySubmenu} className="link-btn">
             products
           </button>
         </li>
-        <li> <button className="link-btn">
+        <li> <button onMouseOver={displaySubmenu}  className="link-btn">
             developers
           </button></li>
-          <li><button className="link-btn">
+          <li><button onMouseOver={displaySubmenu}  className="link-btn">
             company
           </button></li>
       </ul>
