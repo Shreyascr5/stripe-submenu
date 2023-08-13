@@ -5,7 +5,7 @@ import { createContext } from 'react';
 
 const AppContext=createContext();
 
-const AppProvider=(children)=>{
+const AppProvider=({children})=>{
     const[isSidebarOpen,setIsSidebarOpen]=useState(true);
     const[isSubmenuOpen,setIsSubmenuOpen]=useState(true);
 
@@ -13,7 +13,7 @@ const AppProvider=(children)=>{
   const openSidebar=()=>{
     setIsSidebarOpen(true);
   }  
-  const closesidebar=()=>{
+  const closeSidebar=()=>{
     setIsSidebarOpen(false);
   }
   const openSubmenu=()=>{
@@ -26,10 +26,11 @@ const AppProvider=(children)=>{
         openSubmenu,
         openSidebar,
         closeSubmenu,
-        closesidebar,
+        closeSidebar,
         isSubmenuOpen,
         isSidebarOpen
-    }}>{children}</AppContext.Provider>)
+    }}>{children}</AppContext.Provider>
+    )
 }
 export const useGLobalContext=()=>{return(useContext(AppContext))}
 
